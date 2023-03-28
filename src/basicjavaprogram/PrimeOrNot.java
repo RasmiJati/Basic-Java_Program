@@ -13,29 +13,28 @@ import java.util.Scanner;
  */
 public class PrimeOrNot {
 
-    public static int count = 0;
     public static int n;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number : ");
         int num = sc.nextInt();
-        calculation(num);
-    }
-
-    public static void calculation(int num) {
-        n = num;
-        for (int i = 2; i < n; i++) {
-            if (n % i == 0) {
-                count++;
-                break;
-            }
-        }
-        if (count == 0) {
+//        calculation(num);
+        if (calculation(num)) {
             showIfPrime();
         } else {
             showIfNotPrime();
         }
+    }
+
+    public static boolean calculation(int num) {
+        n = num;
+        for (int i = 2; i < n / 2; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void showIfPrime() {
@@ -47,8 +46,3 @@ public class PrimeOrNot {
 
     }
 }
-
-
-
-
-
